@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://4xx7folro35a"]
+
+[ext_resource type="Texture2D" uid="uid://rdyejo13jmq0" path="res://default_cardback.png" id="1_qwqp2"]
+
+[node name="Deck" type="Node2D"]
+
+[node name="DefaultCardback" type="Sprite2D" parent="."]
+position = Vector2(117, 190)
+texture = ExtResource("1_qwqp2")
