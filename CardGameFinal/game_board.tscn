@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://y73fklq32ff1"]
+[gd_scene load_steps=2 format=3 uid="uid://y73fklq32ff1"]
+
+[ext_resource type="PackedScene" uid="uid://4xx7folro35a" path="res://deck.tscn" id="1_wcbvw"]
 
 [node name="GameBoard" type="Node2D"]
+
+[node name="Deck" parent="." instance=ExtResource("1_wcbvw")]
