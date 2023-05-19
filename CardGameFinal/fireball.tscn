@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://dnon0myekfv3w"]
+
+[ext_resource type="Script" path="res://fireball.gd" id="1_0d3sn"]
+[ext_resource type="Texture2D" uid="uid://co81lj4cx36do" path="res://resources/Magic Pack 9 files/Magic Pack 9 files/spritesheets/Fire-bomb.png" id="1_jr6pq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv0gq"]
+atlas = ExtResource("1_jr6pq")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqufx"]
+atlas = ExtResource("1_jr6pq")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp5du"]
+atlas = ExtResource("1_jr6pq")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnfpm"]
+atlas = ExtResource("1_jr6pq")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evism"]
+atlas = ExtResource("1_jr6pq")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osda7"]
+atlas = ExtResource("1_jr6pq")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h745"]
+atlas = ExtResource("1_jr6pq")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbhdg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv0gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqufx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp5du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnfpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evism")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osda7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h745")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx6c8"]
+size = Vector2(60, 54)
+
+[node name="Fireball" type="CharacterBody2D"]
+script = ExtResource("1_0d3sn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_fbhdg")
+frame_progress = 0.383274
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33, 31)
+shape = SubResource("RectangleShape2D_vx6c8")

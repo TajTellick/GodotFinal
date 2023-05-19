@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0fyvxid5204i"]
+
+[ext_resource type="Texture2D" uid="uid://bt366vevuo73f" path="res://resources/Magic Pack 9 files/Magic Pack 9 files/spritesheets/Lightning.png" id="1_ys1pu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufogj"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgfpy"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_247cl"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia5c3"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bf15"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h22wn"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbj15"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g177u"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(448, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44fme"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(512, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuy6r"]
+atlas = ExtResource("1_ys1pu")
+region = Rect2(576, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_asd86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufogj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgfpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_247cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia5c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bf15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h22wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbj15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g177u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44fme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuy6r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab2n5"]
+size = Vector2(54, 116.5)
+
+[node name="lightningBolt" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_asd86")
+frame_progress = 0.638865
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.25)
+shape = SubResource("RectangleShape2D_ab2n5")

@@ -2,8 +2,8 @@ extends Node2D
 
 enum State {PlayerMain,PlayerCombat,CompMain,CompCombat,PlayerTurnEnd,CompTurnEnd,PlayerLoss,CompLoss}
 var turnNumber =0
-var playerHealth=10
-var compHealth=10
+var playerHealth=20
+var compHealth=20
 var curstate=State.PlayerMain
 var deckCheck =1
 
