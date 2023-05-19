@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://djmndppc5midt"]
+[gd_scene load_steps=23 format=3 uid="uid://djmndppc5midt"]
 
+[ext_resource type="Script" path="res://pink_monster.gd" id="1_6hx1q"]
 [ext_resource type="Texture2D" uid="uid://cu3ymyflw30v" path="res://resources/free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Attack1_4.png" id="1_c3o0h"]
 [ext_resource type="Texture2D" uid="uid://cqvevm174es5k" path="res://resources/free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Death_8.png" id="2_jjkrf"]
 [ext_resource type="Texture2D" uid="uid://ckts3upk1syj8" path="res://resources/free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Idle_4.png" id="3_3m5n1"]
@@ -138,6 +139,7 @@ animations = [{
 }]
 
 [node name="PinkMonster" type="CharacterBody2D"]
+script = ExtResource("1_6hx1q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(15.5, 17.5)
@@ -147,4 +149,4 @@ shape = SubResource("RectangleShape2D_n3t7n")
 position = Vector2(16, 14)
 sprite_frames = SubResource("SpriteFrames_xqe56")
 animation = &"death"
-frame_progress = 0.404519
+frame_progress = 0.583591

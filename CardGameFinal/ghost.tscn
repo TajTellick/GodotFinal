@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://cejvdycsw5ro5"]
+[gd_scene load_steps=25 format=3 uid="uid://cejvdycsw5ro5"]
 
 [ext_resource type="Texture2D" uid="uid://d2x01dpsxhddi" path="res://resources/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster_Attack2_6.png" id="1_45ouf"]
+[ext_resource type="Script" path="res://ghost.gd" id="1_yp4ic"]
 [ext_resource type="Texture2D" uid="uid://si0t6ewv25ao" path="res://resources/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster_Death_8.png" id="2_e2frt"]
 [ext_resource type="Texture2D" uid="uid://nfwtkohqe7d1" path="res://resources/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster_Idle_4.png" id="3_3dgn5"]
 
@@ -152,6 +153,7 @@ animations = [{
 }]
 
 [node name="Ghost" type="CharacterBody2D"]
+script = ExtResource("1_yp4ic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16.5, 19)
@@ -161,4 +163,4 @@ shape = SubResource("RectangleShape2D_gjv22")
 position = Vector2(17, 16)
 sprite_frames = SubResource("SpriteFrames_2bknb")
 animation = &"death"
-frame_progress = 0.992498
+frame_progress = 0.341608
