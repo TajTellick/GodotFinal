@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://4xx7folro35a"]
+[gd_scene load_steps=4 format=3 uid="uid://4xx7folro35a"]
 
 [ext_resource type="Script" path="res://deck.gd" id="1_5kd5m"]
 [ext_resource type="Texture2D" uid="uid://rdyejo13jmq0" path="res://default_cardback.png" id="1_qwqp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd0q8"]
+size = Vector2(92, 121)
 
 [node name="Deck" type="Node2D"]
 script = ExtResource("1_5kd5m")
@@ -9,3 +12,9 @@ script = ExtResource("1_5kd5m")
 [node name="DefaultCardback" type="Sprite2D" parent="."]
 position = Vector2(49, 63)
 texture = ExtResource("1_qwqp2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(51, 61.5)
+shape = SubResource("RectangleShape2D_gd0q8")

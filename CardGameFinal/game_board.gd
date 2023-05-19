@@ -1,11 +1,11 @@
 extends Node2D
 
-enum State {PlayerMain,PlayerCombat,CompMain,CompCombat,PlayerTurnEnd,CompTurnEnd}
+enum State {PlayerMain,PlayerCombat,CompMain,CompCombat,PlayerTurnEnd,CompTurnEnd,PlayerLoss,CompLoss}
 var turnNumber =0
 var playerHealth=10
 var compHealth=10
 var curstate=State.PlayerMain
-
+var deckCheck =1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +15,25 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+func millCheck(deckCount):
+	if(deckCheck==1&deckCount==0):
+		deckCheck=0
+	elif(deckCheck==0&curstate==State.CompMain):
+		curstate=State.CompLoss
+	elif(deckCheck==0&curstate==State.PlayerMain):
+		curstate=State.PlayerLoss
+		
+func lifeCheck():
+	if(compHealth<=0):
+		curstate=State.CompLoss
+	elif(playerHealth<=0):
+		curstate=State.PlayerLoss
+	#player will be returned 1 and computer 0
+func playerDamage(damage,defendingPlayer):
+	if (defendingPlayer==1):
+		playerHealth-=damage
+	else:
+		compHealth-=damage
 func Combat():
 	return
 func movePhases():
