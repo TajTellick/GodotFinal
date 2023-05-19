@@ -35,14 +35,16 @@ func playerDamage(damage,defendingPlayer):
 	else:
 		compHealth-=damage
 func Combat():
-	return
+	lifeCheck()
 func movePhases():
 	if curstate==State.PlayerMain:
+		millCheck(12-turnNumber)
 		curstate=State.PlayerCombat
 	elif curstate==State.PlayerCombat:
 		Combat()
 		curstate=State.PlayerTurnEnd
 	elif curstate==State.CompMain:
+		millCheck(12-turnNumber)
 		curstate=State.CompCombat
 	elif curstate==State.CompCombat:
 		Combat()

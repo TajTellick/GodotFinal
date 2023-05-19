@@ -7,6 +7,7 @@ var health = 10
 var curstate = State.ALIVE
 var power =0
 var rng = RandomNumberGenerator.new()
+var cardNumber =1
 
 func setStats(newPower,newHealth):
 	power=newPower
@@ -21,7 +22,9 @@ func kill():
 	else:
 		print(health)
 		
-
+func callCardNumber():
+	return cardNumber
+	
 func takingDamage(damage):
 	var my_random_number = rng.randf_range(1, 100)
 	if(my_random_number<6):
