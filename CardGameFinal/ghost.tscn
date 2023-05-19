@@ -163,4 +163,4 @@ shape = SubResource("RectangleShape2D_gjv22")
 position = Vector2(17, 16)
 sprite_frames = SubResource("SpriteFrames_2bknb")
 animation = &"death"
-frame_progress = 0.341608
+frame_progress = 0.410329

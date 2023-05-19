@@ -5,7 +5,12 @@ enum State {ALIVE, DEAD}
 
 var health = 10
 var curstate = State.ALIVE
+var power =0
+var rng = RandomNumberGenerator.new()
 
+func setStats(newPower,newHealth):
+	power=newPower
+	health=newHealth
 func kill():
 	if health==0:
 		curstate=State.DEAD
@@ -18,6 +23,10 @@ func kill():
 		
 
 func takingDamage(damage):
-	health+=damage
+	var my_random_number = rng.randf_range(1, 100)
+	if(my_random_number<6):
+		health+=damage+2
+	else:
+		health+=damage
 	kill()
 
