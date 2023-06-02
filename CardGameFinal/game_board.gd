@@ -11,6 +11,11 @@ var ghostCard = load("res://ghost_card.tscn")
 var oozeCard = load("res://ooze_card.tscn")
 var fireballCard = load("res://fireball_card.tscn")
 var lightningCard = load("res://lightning_bolt_card.tscn")
+var pink_monster = load("res://pink_monster.tscn")
+var ghost = load("res://ghost.tscn")
+var ooze = load("res://ooze.tscn")
+var fireball = load("res://fireball.tscn")
+var lightning_bolt = load("res://lightning_bolt.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,6 +76,27 @@ func movePhases():
 
 func playCard(card):
 	Global.cardsPlayed+=1
+	Global.cardsInPlay+=1
+	if(card==0):
+		var pink=pink_monster.instantiate()
+		pink.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		add_child(pink)
+	elif(card==1):
+		var ooze=ooze.instantiate()
+		ooze.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		add_child(ooze)
+	elif(card==2):
+		var ghost=ghost.instantiate()
+		ghost.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		add_child(ghost)
+	elif(card==3):
+		var lightning=lightning_bolt.instantiate()
+		lightning.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		add_child(lightning)
+	elif(card==4):
+		var fireball=fireball.instantiate()
+		fireball.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		add_child(fireball)
 	for i in cardsInHand:
 		if(cardsInHand[i]==card):
 			cardsInHand[i]=-1
