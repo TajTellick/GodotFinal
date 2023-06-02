@@ -6,21 +6,20 @@ var playerHealth=20
 var compHealth=20
 var curstate=State.PlayerMain
 var deckCheck =1
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 func millCheck(deckCount):
-	if(deckCheck==1&deckCount==0):
+	if(deckCheck==1&&deckCount==0):
 		deckCheck=0
-	elif(deckCheck==0&curstate==State.CompMain):
+	elif(deckCheck==0&&curstate==State.CompMain):
 		curstate=State.CompLoss
-	elif(deckCheck==0&curstate==State.PlayerMain):
+	elif(deckCheck==0&&curstate==State.PlayerMain):
 		curstate=State.PlayerLoss
 		
 func lifeCheck():
@@ -54,3 +53,8 @@ func movePhases():
 	elif curstate==State.CompTurnEnd:
 		curstate=State.PlayerMain
 	
+
+
+func _on_phase_mover_pressed():
+	movePhases()
+	print(curstate)
