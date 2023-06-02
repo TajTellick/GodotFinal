@@ -6,6 +6,10 @@ var deckCheck =1
 var rng = RandomNumberGenerator.new()
 var cardsInHand=[0,1,2,null,null,null,null]
 var pinkCard = load("res://hand_card.tscn")
+var ghostCard = load("res://ghost_card.tscn")
+var oozeCard = load("res://ooze_card.tscn")
+var fireballCard = load("res://fireball_card.tscn")
+var lightningCard = load("res://lightning_bolt_card.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -68,12 +72,36 @@ func playCard(card):
 			cardsInHand[i]=null
 #func draw():
 	#if Global.turnNumber<3:
-		#if (my_random_number<=30):
+		#if (my_random_number<=70):
 			#addToHand(0)
 			#add.child(pinkCard)
+		#elif (my_random_number>70):
+			#addToHand(1)
+			#add.child(oozeCard)
 	#elif Global.turnNumber<6:
+		#if (my_random_number<=10):
+			#addToHand(0)
+			#add.child(pinkCard)
+		#elif (my_random_number<=50):
+			#addToHand(1)
+			#add.child(oozeCard)
+			#elif (my_random_number>50):
+			#addToHand(4)
+			#add.child(lightningCard)
 	#elif Global.turnNumber<9:
+	#if (my_random_number<=70):
+			#addToHand(3)
+			#add.child(lightningCard)
+		#elif (my_random_number>70):
+			#addToHand(2)
+			#add.child(ghostCard)
 	#else:
+		#if (my_random_number<=70):
+			#addToHand(2)
+			#add.child(pinkCard)
+		#elif (my_random_number>70):
+			#addToHand(4)
+			#add.child(fireballCard)
 func addToHand(newCard):
 	for i in cardsInHand:
 		if(cardsInHand[i]==null):

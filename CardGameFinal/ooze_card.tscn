@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dixvmvg3gnmlu"]
+
+[ext_resource type="Script" path="res://ooze_card.gd" id="1_xr61r"]
+[ext_resource type="Texture2D" uid="uid://dkwfwdg1i3h11" path="res://resources/cardFront.png" id="2_ip3jm"]
+[ext_resource type="Texture2D" uid="uid://6vh3ggofrxqd" path="res://resources/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Dude_Monster.png" id="3_6qnr7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7kau"]
+size = Vector2(97, 124)
+
+[node name="ooze_card" type="CharacterBody2D"]
+script = ExtResource("1_xr61r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49.5, 63)
+shape = SubResource("RectangleShape2D_m7kau")
+
+[node name="CardFront" type="Sprite2D" parent="."]
+position = Vector2(50, 67)
+texture = ExtResource("2_ip3jm")
+
+[node name="PowerHealth" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 87.0
+offset_right = 70.0
+offset_bottom = 110.0
+
+[node name="DudeMonster" type="Sprite2D" parent="."]
+position = Vector2(49, 44)
+texture = ExtResource("3_6qnr7")
