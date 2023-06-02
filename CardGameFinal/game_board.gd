@@ -51,11 +51,13 @@ func movePhases():
 		curstate=State.CompMain
 	elif curstate==State.CompTurnEnd:
 		Global.turnNumber+=1
+		Global.cardDrawn=0
 		print(Global.turnNumber)
 		curstate=State.PlayerMain
 	
 
 func playCard(card):
+	Global.cardsPlayed+=1
 	for i in cardsInHand:
 		if(cardsInHand[i]==card):
 			cardsInHand[i]=null

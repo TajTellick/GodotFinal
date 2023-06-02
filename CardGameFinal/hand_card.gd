@@ -9,7 +9,17 @@ func setPower(newPower):
 func setHealth(newHealth):
 	health=newHealth
 	get_node("PowerHealth").text= "Power: " + str(power) + " Health: " + str(health) 
-
+func setCardType(type):
+	if(type=="pink_monster"):
+		$AnimatedSprite2D.play("pink_monster")
+	elif(type=="ooze"):
+		$AnimatedSprite2D.play("ooze")
+	elif(type=="ghost"):
+		$AnimatedSprite2D.play("ghost")
+	elif(type=="ooze"):
+		$AnimatedSprite2D.play("fireball")
+	elif(type=="lightning_bolt"):
+		$AnimatedSprite2D.play("lightning_bolt")
 func setCardInHand(number):
 	numberInHand=number
 func _on_mouse_shape_entered(shape_idx):
