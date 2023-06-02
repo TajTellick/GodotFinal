@@ -2,8 +2,6 @@ extends Node2D
 
 enum State {PlayerMain,PlayerCombat,CompMain,CompCombat,PlayerTurnEnd,CompTurnEnd,PlayerLoss,CompLoss}
 var turnNumber =0
-var playerHealth=20
-var compHealth=20
 var curstate=State.PlayerMain
 var deckCheck =1
 # Called when the node enters the scene tree for the first time.
@@ -23,16 +21,16 @@ func millCheck(deckCount):
 		curstate=State.PlayerLoss
 		
 func lifeCheck():
-	if(compHealth<=0):
+	if(Global.compHealth<=0):
 		curstate=State.CompLoss
-	elif(playerHealth<=0):
+	elif(Global.playerHealth<=0):
 		curstate=State.PlayerLoss
 	#player will be returned 1 and computer 0
 func playerDamage(damage,defendingPlayer):
 	if (defendingPlayer==1):
-		playerHealth-=damage
+		Global.playerHealth-=damage
 	else:
-		compHealth-=damage
+		Global.compHealth-=damage
 func Combat():
 	lifeCheck()
 func movePhases():

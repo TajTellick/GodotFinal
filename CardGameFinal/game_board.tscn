@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://y73fklq32ff1"]
+[gd_scene load_steps=8 format=3 uid="uid://y73fklq32ff1"]
 
 [ext_resource type="Script" path="res://game_board.gd" id="1_6yoh6"]
 [ext_resource type="PackedScene" uid="uid://4xx7folro35a" path="res://deck.tscn" id="1_wcbvw"]
 [ext_resource type="Script" path="res://Button.gd" id="3_2vhap"]
+[ext_resource type="Script" path="res://CompLifeTracker.gd" id="4_b1pbs"]
+[ext_resource type="Script" path="res://LifeTracker.gd" id="4_r00ff"]
 
 [sub_resource type="Theme" id="Theme_arbvv"]
 
@@ -14,6 +16,20 @@ script = ExtResource("1_6yoh6")
 
 [node name="Deck" parent="." instance=ExtResource("1_wcbvw")]
 position = Vector2(945, 212)
+
+[node name="PlayerLifeTracker" type="Label" parent="."]
+offset_left = 947.0
+offset_top = 415.0
+offset_right = 1088.0
+offset_bottom = 441.0
+script = ExtResource("4_r00ff")
+
+[node name="CompLifeTracker" type="Label" parent="."]
+offset_left = 941.0
+offset_top = 445.0
+offset_right = 1074.0
+offset_bottom = 468.0
+script = ExtResource("4_b1pbs")
 
 [node name="PhaseMover" type="Button" parent="."]
 offset_left = 940.0
