@@ -34,12 +34,12 @@ offset_bottom = 518.0
 script = ExtResource("4_b1pbs")
 
 [node name="PlayCard" type="Button" parent="."]
-offset_left = 1027.0
+offset_left = 1007.0
 offset_top = 532.0
-offset_right = 1133.0
+offset_right = 1144.0
 offset_bottom = 563.0
 theme = SubResource("Theme_u2oau")
-text = "Play Card"
+text = "Play Card/Attack"
 
 [node name="PhaseMover" type="Button" parent="."]
 offset_left = 1028.0

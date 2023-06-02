@@ -82,21 +82,21 @@ func playCard(card):
 		pink.global_position = Vector2(125+100*Global.cardsInPlay,300)
 		add_child(pink)
 	elif(card==1):
-		var ooze=ooze.instantiate()
-		ooze.global_position = Vector2(125+100*Global.cardsInPlay,300)
-		add_child(ooze)
+		var ooze2=ooze.instantiate()
+		ooze2.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		add_child(ooze2)
 	elif(card==2):
-		var ghost=ghost.instantiate()
-		ghost.global_position = Vector2(125+100*Global.cardsInPlay,300)
-		add_child(ghost)
+		var ghost2=ghost.instantiate()
+		ghost2.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		add_child(ghost2)
 	elif(card==3):
 		var lightning=lightning_bolt.instantiate()
 		lightning.global_position = Vector2(125+100*Global.cardsInPlay,300)
 		add_child(lightning)
 	elif(card==4):
-		var fireball=fireball.instantiate()
-		fireball.global_position = Vector2(125+100*Global.cardsInPlay,300)
-		add_child(fireball)
+		var fireball2=fireball.instantiate()
+		fireball2.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		add_child(fireball2)
 	for i in cardsInHand:
 		if(cardsInHand[i]==card):
 			cardsInHand[i]=-1
