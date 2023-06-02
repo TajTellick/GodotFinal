@@ -5,7 +5,7 @@ enum State {ALIVE, DEAD}
 
 var health = 10
 var curstate = State.ALIVE
-var power =0
+var power =4
 var rng = RandomNumberGenerator.new()
 var cardNumber =1
 

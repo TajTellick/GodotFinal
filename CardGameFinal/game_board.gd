@@ -3,8 +3,9 @@ extends Node2D
 enum State {PlayerMain,PlayerCombat,CompMain,CompCombat,PlayerTurnEnd,CompTurnEnd,PlayerLoss,CompLoss}
 var curstate=State.PlayerMain
 var deckCheck =1
-
+var rng = RandomNumberGenerator.new()
 var cardsInHand=[0,1,2,null,null,null,null]
+var pinkCard = load("res://hand_card.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -12,7 +13,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var my_random_number = rng.randf_range(1.0, 100.0)
+	
 func millCheck(deckCount):
 	if(deckCheck==1&&deckCount==0):
 		deckCheck=0
@@ -36,8 +38,11 @@ func Combat():
 	lifeCheck()
 func movePhases():
 	if curstate==State.PlayerMain:
-		millCheck(12-Global.turnNumber)
-		curstate=State.PlayerCombat
+		if(Global.cardDrawn==1):
+			millCheck(12-Global.turnNumber)
+			curstate=State.PlayerCombat
+		else:
+			print("please draw a card first")
 	elif curstate==State.PlayerCombat:
 		Combat()
 		curstate=State.PlayerTurnEnd
@@ -63,6 +68,9 @@ func playCard(card):
 			cardsInHand[i]=null
 #func draw():
 	#if Global.turnNumber<3:
+		#if (my_random_number<=30):
+			#addToHand(0)
+			#add.child(pinkCard)
 	#elif Global.turnNumber<6:
 	#elif Global.turnNumber<9:
 	#else:

@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0fyvxid5204i"]
+[gd_scene load_steps=15 format=3 uid="uid://d0fyvxid5204i"]
 
+[ext_resource type="Script" path="res://lightning_bolt.gd" id="1_kn6mc"]
 [ext_resource type="Texture2D" uid="uid://bt366vevuo73f" path="res://resources/Magic Pack 9 files/Magic Pack 9 files/spritesheets/Lightning.png" id="1_ys1pu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufogj"]
@@ -84,6 +85,7 @@ animations = [{
 size = Vector2(54, 116.5)
 
 [node name="lightningBolt" type="CharacterBody2D"]
+script = ExtResource("1_kn6mc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_asd86")

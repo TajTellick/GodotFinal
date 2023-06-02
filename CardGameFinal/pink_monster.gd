@@ -3,9 +3,9 @@ extends CharacterBody2D
 
 enum State {ALIVE, DEAD}
 
-var health = 10
+var health = 3
 var curstate = State.ALIVE
-var power =0
+var power =1
 var rng = RandomNumberGenerator.new()
 var cardNumber = 0
 

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-var cardNumber=3
-var power=2
+var cardNumber=4
+var power=3
 
 func setStats(newPower):
 	power=newPower

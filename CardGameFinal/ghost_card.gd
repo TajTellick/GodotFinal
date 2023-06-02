@@ -1,6 +1,6 @@
 extends CharacterBody2D
-var power =3
-var health =1
+var power =10
+var health =4
 var mouse_in =0
 var numberInHand = null
 func setPower(newPower):

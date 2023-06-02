@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bod4cykn6sbew"]
+
+[ext_resource type="Texture2D" uid="uid://dkwfwdg1i3h11" path="res://resources/cardFront.png" id="1_8p33k"]
+[ext_resource type="Script" path="res://ghost_card.gd" id="1_i54yc"]
+[ext_resource type="Texture2D" uid="uid://bbvbiebajbrfd" path="res://resources/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster.png" id="3_fh2gw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1eao"]
+size = Vector2(97, 124)
+
+[node name="ghost_card" type="CharacterBody2D"]
+script = ExtResource("1_i54yc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49.5, 63)
+shape = SubResource("RectangleShape2D_i1eao")
+
+[node name="CardFront" type="Sprite2D" parent="."]
+position = Vector2(50, 67)
+texture = ExtResource("1_8p33k")
+
+[node name="PowerHealth" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 87.0
+offset_right = 70.0
+offset_bottom = 110.0
+
+[node name="OwletMonster" type="Sprite2D" parent="."]
+position = Vector2(49, 45)
+texture = ExtResource("3_fh2gw")
