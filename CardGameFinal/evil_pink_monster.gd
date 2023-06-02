@@ -1,4 +1,4 @@
-extends Player 
+extends Enemy 
 
 
 enum State {ALIVE, DEAD}
@@ -71,8 +71,7 @@ func _physics_process(delta):
 	# Update the amount of time you spent in the current state
 	state_time += delta
 	
-	
-	if (Global.compCardPlay>0):
+	if(Global.cardsPlayed>1):
 		var player = get_tree().get_root().find_child("Player",true,false)
 		var dir = player.position -self.position
 		var ang = rad_to_deg(dir.angle())

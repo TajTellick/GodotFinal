@@ -51,6 +51,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_tfv4r")
 text = "Move Phases"
 script = ExtResource("3_2vhap")
 
+[node name="Winner" type="Label" parent="."]
+offset_left = 262.0
+offset_top = 185.0
+offset_right = 933.0
+offset_bottom = 550.0
+
 [connection signal="draw" from="Deck" to="." method="_on_deck_draw"]
 [connection signal="pressed" from="PlayCard" to="." method="_on_play_card_pressed"]
 [connection signal="pressed" from="PhaseMover" to="." method="_on_phase_mover_pressed"]

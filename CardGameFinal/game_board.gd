@@ -16,7 +16,9 @@ var ghost = load("res://ghost.tscn")
 var ooze = load("res://ooze.tscn")
 var fireball = load("res://fireball.tscn")
 var lightning_bolt = load("res://lightning_bolt.tscn")
-
+var evil_pink_monster = load("res://pink_monster.tscn")
+var evil_ghost = load("res://ghost.tscn")
+var evil_ooze = load("res://ooze.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	draw()
@@ -33,14 +35,17 @@ func millCheck(deckCount):
 		deckCheck=0
 	elif(deckCheck==0&&curstate==State.CompMain):
 		curstate=State.CompLoss
+		get_node("Winner").text = "You Win"
 	elif(deckCheck==0&&curstate==State.PlayerMain):
 		curstate=State.PlayerLoss
-		
+		get_node("Winner").text = "You Win"
 func lifeCheck():
 	if(Global.compHealth<=0):
 		curstate=State.CompLoss
+		get_node("Winner").text = "You Win"
 	elif(Global.playerHealth<=0):
 		curstate=State.PlayerLoss
+		get_node("Winner").text = "You Lose"
 	#player will be returned 1 and computer 0
 func Combat():
 	lifeCheck()
@@ -54,8 +59,20 @@ func movePhases():
 	elif curstate==State.PlayerCombat:
 		Combat()
 		curstate=State.PlayerTurnEnd
+		
 	elif curstate==State.CompMain:
 		millCheck(12-Global.turnNumber)
+		if(Global.turnNumber<2):
+			print(Global.turnNumber)
+			evilPlayCard(0)
+			print("hi")
+			evilPlayCard(0)
+		elif(Global.turnNumber<5):
+			evilPlayCard(1)
+			evilPlayCard(1)
+		else:
+			evilPlayCard(2)
+			evilPlayCard(2)
 		curstate=State.CompCombat
 	elif curstate==State.CompCombat:
 		Combat()
@@ -68,31 +85,45 @@ func movePhases():
 		print(Global.turnNumber)
 		curstate=State.PlayerMain
 	
-
+func evilPlayCard(card):
+	if(card==0):
+		var epink=evil_pink_monster.instantiate()
+		print("test")
+		epink.global_position = Vector2(125+100*Global.compCardPlay,100)
+		add_child(epink)
+	if(card==1):
+		var eghost=evil_ghost.instantiate()
+		eghost.global_position = Vector2(125+100*Global.compCardPlay,100)
+		add_child(eghost)
+	if(card==2):
+		var eooze=evil_ooze.instantiate()
+		eooze.global_position = Vector2(125+100*Global.compCardPlay,100)
+		add_child(eooze)
+	Global.compCardPlay+=1
 func playCard(card):
 	Global.cardsPlayed+=1
 	Global.cardsInPlay+=1
 	if(card==0):
 		var pink=pink_monster.instantiate()
-		pink.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		pink.global_position = Vector2(125+100*Global.cardsInPlay,400)
 		add_child(pink)
 	elif(card==1):
 		var ooze2=ooze.instantiate()
-		ooze2.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		ooze2.global_position = Vector2(125+100*Global.cardsInPlay,400)
 		add_child(ooze2)
 	elif(card==2):
 		var ghost2=ghost.instantiate()
-		ghost2.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		ghost2.global_position = Vector2(125+100*Global.cardsInPlay,400)
 		add_child(ghost2)
 	elif(card==3):
 		Global.target=1
 		var lightning=lightning_bolt.instantiate()
-		lightning.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		lightning.global_position = Vector2(125+100*Global.cardsInPlay,400)
 		add_child(lightning)
 	elif(card==4):
 		Global.target=1
 		var fireball2=fireball.instantiate()
-		fireball2.global_position = Vector2(125+100*Global.cardsInPlay,300)
+		fireball2.global_position = Vector2(125+100*Global.cardsInPlay,400)
 		add_child(fireball2)
 	for i in cardsInHand:
 		if(cardsInHand[i]==card):

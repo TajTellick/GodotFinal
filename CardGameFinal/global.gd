@@ -4,6 +4,7 @@ var playerHealth =20
 var compHealth =20
 var turnNumber=1
 var cardsPlayed =0
+var compCardPlay =0
 var target =-1
 var cardDrawn =0
 var cardsInPlay=0
