@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvpo8k8gv33hi"]
+[gd_scene load_steps=6 format=3 uid="uid://bvpo8k8gv33hi"]
 
 [ext_resource type="Texture2D" uid="uid://dkwfwdg1i3h11" path="res://resources/cardFront.png" id="1_5rcf7"]
 [ext_resource type="Script" path="res://hand_card.gd" id="1_efjik"]
@@ -7,12 +7,22 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ind7j"]
 size = Vector2(97, 124)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6bjc"]
+size = Vector2(91, 121)
+
 [node name="pink_monster_Card" type="CharacterBody2D"]
 script = ExtResource("1_efjik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(49.5, 63)
 shape = SubResource("RectangleShape2D_ind7j")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(49.5, 63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_q6bjc")
 
 [node name="CardFront" type="Sprite2D" parent="."]
 position = Vector2(50, 67)
@@ -31,3 +41,5 @@ autowrap_mode = 3
 
 [connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
+[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dixvmvg3gnmlu"]
+[gd_scene load_steps=6 format=3 uid="uid://dixvmvg3gnmlu"]
 
 [ext_resource type="Script" path="res://ooze_card.gd" id="1_xr61r"]
 [ext_resource type="Texture2D" uid="uid://dkwfwdg1i3h11" path="res://resources/cardFront.png" id="2_ip3jm"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7kau"]
 size = Vector2(97, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6qvv"]
+size = Vector2(91, 116)
 
 [node name="ooze_card" type="CharacterBody2D"]
 script = ExtResource("1_xr61r")
@@ -18,6 +21,13 @@ shape = SubResource("RectangleShape2D_m7kau")
 position = Vector2(50, 67)
 texture = ExtResource("2_ip3jm")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(14, 87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(35.5, -22)
+shape = SubResource("RectangleShape2D_i6qvv")
+
 [node name="PowerHealth" type="Label" parent="."]
 offset_left = 14.0
 offset_top = 87.0
@@ -28,3 +38,6 @@ autowrap_mode = 3
 [node name="DudeMonster" type="Sprite2D" parent="."]
 position = Vector2(49, 44)
 texture = ExtResource("3_6qnr7")
+
+[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]

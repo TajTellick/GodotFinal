@@ -11,12 +11,17 @@ func setHealth(newHealth):
 	get_node("PowerHealth").text= "Power: " + str(power) + " Health: " + str(health) 
 func setCardInHand(number):
 	numberInHand=number
-func _on_mouse_shape_entered(shape_idx):
-	mouse_in=1
-
-func _on_mouse_shape_exited(shape_idx):
-	mouse_in=0
+	
 func _process(delta):
 	get_node("PowerHealth").text= "Power: " + str(power)
 	if Input.is_action_pressed("mouse_button_left") && mouse_in == 1:
+		print("card selected")
 		Global.selectedCard= numberInHand
+
+
+func _on_area_2d_mouse_shape_entered(shape_idx):
+	mouse_in=1
+
+
+func _on_area_2d_mouse_shape_exited(shape_idx):
+	mouse_in=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b31le8cqq8qi8"]
+[gd_scene load_steps=6 format=3 uid="uid://b31le8cqq8qi8"]
 
 [ext_resource type="Script" path="res://fireball_card.gd" id="1_qa633"]
 [ext_resource type="Texture2D" uid="uid://dkwfwdg1i3h11" path="res://resources/cardFront.png" id="2_jjpxd"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_andqj"]
 size = Vector2(97, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj8kf"]
+size = Vector2(95, 124)
 
 [node name="fireball_card" type="CharacterBody2D"]
 script = ExtResource("1_qa633")
@@ -28,3 +31,12 @@ autowrap_mode = 3
 [node name="Fire-bomb12" type="Sprite2D" parent="."]
 position = Vector2(51, 48)
 texture = ExtResource("3_wibpm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(50.5, 67)
+shape = SubResource("RectangleShape2D_vj8kf")
+
+[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]
