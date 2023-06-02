@@ -2,7 +2,7 @@ extends CharacterBody2D
 var power =3
 var health =1
 var mouse_in =0
-var numberInHand = null
+var numberInHand = 0
 func setPower(newPower):
 	power=newPower
 	get_node("PowerHealth").text= "Power: " + str(power)

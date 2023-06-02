@@ -2,6 +2,7 @@ extends Node2D
 
 enum State {PlayerMain,PlayerCombat,CompMain,CompCombat,PlayerTurnEnd,CompTurnEnd,PlayerLoss,CompLoss}
 var curstate=State.PlayerMain
+var my_random_number =0
 var deckCheck =1
 var rng = RandomNumberGenerator.new()
 var cardsInHand=[0,1,2,null,null,null,null]
@@ -17,7 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var my_random_number = rng.randf_range(1.0, 100.0)
+	my_random_number = rng.randf_range(1.0, 100.0)
 	
 func millCheck(deckCount):
 	if(deckCheck==1&&deckCount==0):
@@ -70,38 +71,49 @@ func playCard(card):
 	for i in cardsInHand:
 		if(cardsInHand[i]==card):
 			cardsInHand[i]=null
-#func draw():
-	#if Global.turnNumber<3:
-		#if (my_random_number<=70):
-			#addToHand(0)
-			#add.child(pinkCard)
-		#elif (my_random_number>70):
-			#addToHand(1)
-			#add.child(oozeCard)
-	#elif Global.turnNumber<6:
-		#if (my_random_number<=10):
-			#addToHand(0)
-			#add.child(pinkCard)
-		#elif (my_random_number<=50):
-			#addToHand(1)
-			#add.child(oozeCard)
-			#elif (my_random_number>50):
-			#addToHand(4)
-			#add.child(lightningCard)
-	#elif Global.turnNumber<9:
-	#if (my_random_number<=70):
-			#addToHand(3)
-			#add.child(lightningCard)
-		#elif (my_random_number>70):
-			#addToHand(2)
-			#add.child(ghostCard)
-	#else:
-		#if (my_random_number<=70):
-			#addToHand(2)
-			#add.child(pinkCard)
-		#elif (my_random_number>70):
-			#addToHand(4)
-			#add.child(fireballCard)
+			break
+func draw():
+	
+	if Global.turnNumber<3:
+		if (my_random_number<=70):
+			addToHand(0)
+			var drawnCard=pinkCard.instance()
+			add_child(drawnCard)
+		elif (my_random_number>70):
+			addToHand(1)
+			var drawnCard=oozeCard.instance()
+			add_child(drawnCard)
+	elif Global.turnNumber<6:
+		if (my_random_number<=10):
+			addToHand(0)
+			var drawnCard=pinkCard.instance()
+			add_child(drawnCard)
+		elif (my_random_number<=50):
+			addToHand(1)
+			var drawnCard=oozeCard.instance()
+			add_child(drawnCard)
+		elif (my_random_number>50):
+			addToHand(4)
+			var drawnCard=lightningCard.instance()
+			add_child(drawnCard)
+	elif Global.turnNumber<9:
+		if (my_random_number<=70):
+			addToHand(3)
+			var drawnCard=lightningCard.instance()
+			add_child(drawnCard)
+		elif (my_random_number>70):
+			addToHand(2)
+			var drawnCard=ghostCard.instance()
+			add_child(drawnCard)
+	else:
+		if (my_random_number<=70):
+			addToHand(2)
+			var drawnCard=ghostCard.instance()
+			add_child(drawnCard)
+		elif (my_random_number>70):
+			addToHand(4)
+			var drawnCard=fireballCard.instance()
+			add_child(drawnCard)
 func addToHand(newCard):
 	for i in cardsInHand:
 		if(cardsInHand[i]==null):
