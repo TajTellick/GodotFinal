@@ -17,5 +17,6 @@ func _on_mouse_shape_entered(shape_idx):
 func _on_mouse_shape_exited(shape_idx):
 	mouse_in=0
 func _process(delta):
+	get_node("PowerHealth").text= "Power: " + str(power)
 	if Input.is_action_pressed("mouse_button_left") && mouse_in == 1:
 		Global.selectedCard= numberInHand

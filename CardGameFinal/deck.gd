@@ -9,19 +9,19 @@ func _ready():
 
 
 
-
 func _process(delta):
 	if Input.is_action_pressed("mouse_button_left") && mouse_in == 1:
 		displayStats(Global.cardsPlayed)
 	if Input.is_action_pressed("mouse_button_right") && mouse_in == 1&&Global.cardDrawn==0:
+		emit_signal("draw")
 		Global.cardDrawn+=1
 		print("drawing card")
 #eventually will be played when right clicking on deck
 #will push to a text box when setup
 func displayStats(cardsPlayed):
-	print(cardsLeft-Global.turnNumber)
-	print(cardsInHand+Global.turnNumber-cardsPlayed)
-
+	print(str(cardsLeft-Global.turnNumber) +" cards left")
+	print(str(cardsInHand+Global.turnNumber-cardsPlayed)+ " cards in hand")
+ 
 
 func _on_area_2d_mouse_shape_exited(shape_idx):
 	mouse_in=0

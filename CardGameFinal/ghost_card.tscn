@@ -19,10 +19,11 @@ position = Vector2(50, 67)
 texture = ExtResource("1_8p33k")
 
 [node name="PowerHealth" type="Label" parent="."]
-offset_left = 30.0
+offset_left = 14.0
 offset_top = 87.0
-offset_right = 70.0
+offset_right = 89.0
 offset_bottom = 110.0
+autowrap_mode = 3
 
 [node name="OwletMonster" type="Sprite2D" parent="."]
 position = Vector2(49, 45)

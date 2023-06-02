@@ -5,15 +5,18 @@ var curstate=State.PlayerMain
 var my_random_number =0
 var deckCheck =1
 var rng = RandomNumberGenerator.new()
-var cardsInHand=[0,1,2,null,null,null,null]
+var cardsInHand=[0,1,2,-1,-1,-1,-1]
 var pinkCard = load("res://hand_card.tscn")
 var ghostCard = load("res://ghost_card.tscn")
 var oozeCard = load("res://ooze_card.tscn")
 var fireballCard = load("res://fireball_card.tscn")
 var lightningCard = load("res://lightning_bolt_card.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	draw()
+	draw()
+	draw()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,61 +73,73 @@ func playCard(card):
 	Global.cardsPlayed+=1
 	for i in cardsInHand:
 		if(cardsInHand[i]==card):
-			cardsInHand[i]=null
+			cardsInHand[i]=-1
 			break
 func draw():
-	
 	if Global.turnNumber<3:
 		if (my_random_number<=70):
 			addToHand(0)
-			var drawnCard=pinkCard.instance()
-			add_child(drawnCard)
+			var drawnCard0=pinkCard.instantiate()
+			drawnCard0.global_position = Vector2(225,500)
+			add_child(drawnCard0)
 		elif (my_random_number>70):
 			addToHand(1)
-			var drawnCard=oozeCard.instance()
-			add_child(drawnCard)
+			var drawnCard1=oozeCard.instantiate()
+			drawnCard1.global_position = Vector2(325,500)
+			add_child(drawnCard1)
 	elif Global.turnNumber<6:
 		if (my_random_number<=10):
 			addToHand(0)
-			var drawnCard=pinkCard.instance()
-			add_child(drawnCard)
+			var drawnCard0=pinkCard.instantiate()
+			drawnCard0.global_position = Vector2(225,500)
+			add_child(drawnCard0)
 		elif (my_random_number<=50):
 			addToHand(1)
-			var drawnCard=oozeCard.instance()
-			add_child(drawnCard)
+			var drawnCard1=oozeCard.instantiate()
+			drawnCard1.global_position = Vector2(325,500)
+			add_child(drawnCard1)
 		elif (my_random_number>50):
-			addToHand(4)
-			var drawnCard=lightningCard.instance()
-			add_child(drawnCard)
+			addToHand(3)
+			var drawnCard3=lightningCard.instantiate()
+			drawnCard3.global_position = Vector2(425,500)
+			add_child(drawnCard3)
 	elif Global.turnNumber<9:
 		if (my_random_number<=70):
 			addToHand(3)
-			var drawnCard=lightningCard.instance()
-			add_child(drawnCard)
+			var drawnCard3=lightningCard.instantiate()
+			drawnCard3.global_position = Vector2(425,500)
+			add_child(drawnCard3)
 		elif (my_random_number>70):
 			addToHand(2)
-			var drawnCard=ghostCard.instance()
-			add_child(drawnCard)
+			var drawnCard2=ghostCard.instantiate()
+			drawnCard2.global_position = Vector2(525,500)
+			add_child(drawnCard2)
 	else:
 		if (my_random_number<=70):
 			addToHand(2)
-			var drawnCard=ghostCard.instance()
-			add_child(drawnCard)
+			var drawnCard2=ghostCard.instantiate()
+			drawnCard2.global_position = Vector2(525,500)
+			add_child(drawnCard2)
 		elif (my_random_number>70):
 			addToHand(4)
-			var drawnCard=fireballCard.instance()
-			add_child(drawnCard)
+			var drawnCard4=fireballCard.instantiate()
+			drawnCard4.global_position = Vector2(625,500)
+			add_child(drawnCard4)
 func addToHand(newCard):
 	for i in cardsInHand:
-		if(cardsInHand[i]==null):
+		if(cardsInHand[i]==-1):
 			cardsInHand[i]=newCard
 func _on_phase_mover_pressed():
 	movePhases()
 
 
 func _on_play_card_pressed():
-	if (Global.selectedCard!=null):
+	if (Global.selectedCard!=-1):
 		playCard(Global.selectedCard)
-		Global.selectedCard=null
+		Global.selectedCard=-1
 	else:
 		print("No selected Card")
+
+
+func _on_deck_draw():
+	draw()
