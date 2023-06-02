@@ -8,6 +8,11 @@ func playCard(card):
 	for i in cardsInHand:
 		if(cardsInHand[i]==card):
 			cardsInHand[i]=null
+#func draw():
+	#if Global.turnNumber<3:
+	#elif Global.turnNumber<6:
+	#elif Global.turnNumber<9:
+	#else:
 func addToHand(newCard):
 	for i in cardsInHand:
 		if(cardsInHand[i]==null):

@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://bvpo8k8gv33hi"]
+
+[ext_resource type="Texture2D" uid="uid://dkwfwdg1i3h11" path="res://resources/cardFront.png" id="1_5rcf7"]
+[ext_resource type="Script" path="res://hand_card.gd" id="1_efjik"]
+[ext_resource type="Texture2D" uid="uid://nnfy3fnbecet" path="res://resources/Magic Pack 9 files/Magic Pack 9 files/sprites/FireBomb/Fire-bomb11.png" id="2_p1m52"]
+[ext_resource type="Texture2D" uid="uid://bbvbiebajbrfd" path="res://resources/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster.png" id="3_tvn6r"]
+[ext_resource type="Texture2D" uid="uid://cuh6d1sriu0xn" path="res://resources/Magic Pack 9 files/Magic Pack 9 files/sprites/Lightning/Lightning2.png" id="4_f2vge"]
+[ext_resource type="Texture2D" uid="uid://6vh3ggofrxqd" path="res://resources/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Dude_Monster.png" id="5_si8wm"]
+[ext_resource type="Texture2D" uid="uid://d1qfm8lcl73fa" path="res://resources/free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster.png" id="6_3rpsd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ind7j"]
+size = Vector2(97, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjda3"]
+atlas = ExtResource("2_p1m52")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpk77"]
+atlas = ExtResource("3_tvn6r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe7a7"]
+atlas = ExtResource("4_f2vge")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3m86"]
+atlas = ExtResource("5_si8wm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn7l8"]
+atlas = ExtResource("6_3rpsd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3cae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjda3")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpk77")
+}],
+"loop": true,
+"name": &"ghost",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe7a7")
+}],
+"loop": true,
+"name": &"lightning_bolt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3m86")
+}],
+"loop": true,
+"name": &"ooze",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn7l8")
+}],
+"loop": true,
+"name": &"pink_monster",
+"speed": 5.0
+}]
+
+[node name="handCard" type="CharacterBody2D"]
+script = ExtResource("1_efjik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49.5, 63)
+shape = SubResource("RectangleShape2D_ind7j")
+
+[node name="CardFront" type="Sprite2D" parent="."]
+position = Vector2(50, 67)
+texture = ExtResource("1_5rcf7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(49, 47)
+scale = Vector2(0.554687, 0.542969)
+sprite_frames = SubResource("SpriteFrames_v3cae")
+animation = &"lightning_bolt"
+
+[node name="PowerHealth" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 87.0
+offset_right = 70.0
+offset_bottom = 110.0
+
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]

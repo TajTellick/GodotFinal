@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://y73fklq32ff1"]
+[gd_scene load_steps=9 format=3 uid="uid://y73fklq32ff1"]
 
 [ext_resource type="Script" path="res://game_board.gd" id="1_6yoh6"]
 [ext_resource type="PackedScene" uid="uid://4xx7folro35a" path="res://deck.tscn" id="1_wcbvw"]
 [ext_resource type="Script" path="res://Button.gd" id="3_2vhap"]
 [ext_resource type="Script" path="res://CompLifeTracker.gd" id="4_b1pbs"]
 [ext_resource type="Script" path="res://LifeTracker.gd" id="4_r00ff"]
+
+[sub_resource type="Theme" id="Theme_u2oau"]
 
 [sub_resource type="Theme" id="Theme_arbvv"]
 
@@ -31,6 +33,14 @@ offset_right = 1074.0
 offset_bottom = 468.0
 script = ExtResource("4_b1pbs")
 
+[node name="PlayCard" type="Button" parent="."]
+offset_left = 941.0
+offset_top = 347.0
+offset_right = 1047.0
+offset_bottom = 376.0
+theme = SubResource("Theme_u2oau")
+text = "Play Card"
+
 [node name="PhaseMover" type="Button" parent="."]
 offset_left = 940.0
 offset_top = 384.0
@@ -41,4 +51,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_tfv4r")
 text = "Move Phases"
 script = ExtResource("3_2vhap")
 
+[connection signal="pressed" from="PlayCard" to="." method="_on_play_card_pressed"]
 [connection signal="pressed" from="PhaseMover" to="." method="_on_phase_mover_pressed"]
