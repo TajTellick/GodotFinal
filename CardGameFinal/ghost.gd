@@ -32,4 +32,11 @@ func takingDamage(damage):
 	else:
 		health+=damage
 	kill()
-
+func attack(target,targetHealth,targetPower):
+	targetHealth-power
+	takingDamage(targetPower)
+func attackPlayer(play):
+	if(play=="player"):
+		Global.playerHealth-=power
+	elif(play=="comp"):
+		Global.compHealth-=power

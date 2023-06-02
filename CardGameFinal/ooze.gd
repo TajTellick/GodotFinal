@@ -13,7 +13,7 @@ func setStats(newPower,newHealth):
 	power=newPower
 	health=newHealth
 func kill():
-	if health==0:
+	if health<=0:
 		curstate=State.DEAD
 		$AnimatedSprite2D.frame = 0
 		$AnimatedSprite2D.play("death")
@@ -24,12 +24,19 @@ func kill():
 		
 func callCardNumber():
 	return cardNumber
-	
+func attack(target,targetHealth,targetPower):
+	targetHealth-power
+	takingDamage(targetPower)
+func attackPlayer(play):
+	if(play=="player"):
+		Global.playerHealth-=power
+	elif(play=="comp"):
+		Global.compHealth-=power
 func takingDamage(damage):
 	var my_random_number = rng.randf_range(1, 100)
 	if(my_random_number<6):
-		health+=damage+2
+		health-=damage-2
 	else:
-		health+=damage
+		health-=damage
 	kill()
 

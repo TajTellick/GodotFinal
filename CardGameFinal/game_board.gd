@@ -42,11 +42,6 @@ func lifeCheck():
 	elif(Global.playerHealth<=0):
 		curstate=State.PlayerLoss
 	#player will be returned 1 and computer 0
-func playerDamage(damage,defendingPlayer):
-	if (defendingPlayer==1):
-		Global.playerHealth-=damage
-	else:
-		Global.compHealth-=damage
 func Combat():
 	lifeCheck()
 func movePhases():
@@ -90,10 +85,12 @@ func playCard(card):
 		ghost2.global_position = Vector2(125+100*Global.cardsInPlay,300)
 		add_child(ghost2)
 	elif(card==3):
+		Global.target=1
 		var lightning=lightning_bolt.instantiate()
 		lightning.global_position = Vector2(125+100*Global.cardsInPlay,300)
 		add_child(lightning)
 	elif(card==4):
+		Global.target=1
 		var fireball2=fireball.instantiate()
 		fireball2.global_position = Vector2(125+100*Global.cardsInPlay,300)
 		add_child(fireball2)
